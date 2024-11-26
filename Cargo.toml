@@ -1,0 +1,22 @@
+[package]
+name = "r2d2-pal"
+version = "0.1.11"
+edition = "2021"
+description = "An I/O device communication module written in Rust."
+readme = "README.md"
+license-file = "LICENSE"
+license = "MIT"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "r2d2"
+crate-type = ["cdylib"]
+
+[dependencies]
+embedded-hal = "1.0.0"
+embedded-hal-nb = "1.0.0"
+linux-embedded-hal = "0.4.0"
+pyo3 = { version = "0.22", features = ["abi3-py38"] }
+
+[dev-dependencies]
+openpty = "0.2.0"
