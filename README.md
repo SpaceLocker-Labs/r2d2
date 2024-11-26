@@ -1,5 +1,8 @@
 # R2D2
 
+[![Crates.io Status](https://img.shields.io/crates/v/r2d2-pal.svg)](https://crates.io/crates/r2d2-pal)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/SpaceLocker-Labs/r2d2/main/LICENSE)
+
 > "Rust Reliable Device Drivers"
 
 r2d2-pal (R2D2 Protocol Abstraction Layer) is a module to define Rust bindings for Python of the [linux_embedded_hal](https://docs.rs/linux-embedded-hal/latest/linux_embedded_hal/) crate.
