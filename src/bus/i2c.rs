@@ -48,12 +48,8 @@ impl I2CBus {
         let mut ops = [Operation::Read(&mut read_buffer)];
 
         match self.inner.transaction(self.address, &mut ops) {
-            Ok(_) => return Ok(read_buffer.as_mut_slice().to_vec()),
-            Err(_) => {
-                return Err(PyValueError::new_err(format!(
-                    "Failed to read from I2C bus"
-                )))
-            }
+            Ok(_) => Ok(read_buffer.as_mut_slice().to_vec()),
+            Err(_) => Err(PyValueError::new_err("Failed to read from I2C bus")),
         }
     }
 
@@ -64,7 +60,7 @@ impl I2CBus {
 
         match self.inner.transaction(self.address, &mut ops) {
             Ok(_) => Ok(()),
-            Err(_) => return Err(PyValueError::new_err(format!("Failed to write to I2C bus"))),
+            Err(_) => Err(PyValueError::new_err("Failed to write to I2C bus")),
         }
     }
 }

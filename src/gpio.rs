@@ -65,6 +65,7 @@ impl TryFrom<&str> for State {
 ///
 /// GPIO definition.
 #[pyclass]
+#[allow(clippy::upper_case_acronyms)]
 pub struct GPIO {
     /// The path
     pub path: String,

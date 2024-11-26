@@ -128,7 +128,7 @@ impl SerialBus {
 
         let port = match self.inner.as_mut() {
             Some(port) => port,
-            None => return Err(PyValueError::new_err(format!("Port not open"))),
+            None => return Err(PyValueError::new_err("Port not open")),
         };
 
         for _ in 0..length {
@@ -155,7 +155,7 @@ impl SerialBus {
     fn write(&mut self, data: Vec<u8>) -> PyResult<()> {
         let inner = match self.inner.as_mut() {
             Some(port) => port,
-            None => return Err(PyValueError::new_err(format!("Port not open"))),
+            None => return Err(PyValueError::new_err("Port not open")),
         };
 
         for byte in data {
@@ -177,7 +177,7 @@ impl SerialBus {
     fn flush(&mut self) -> PyResult<()> {
         let inner = match self.inner.as_mut() {
             Some(port) => port,
-            None => return Err(PyValueError::new_err(format!("Port not open"))),
+            None => return Err(PyValueError::new_err("Port not open")),
         };
 
         match inner.flush() {
@@ -194,7 +194,7 @@ impl SerialBus {
     fn input_waiting(&mut self) -> PyResult<u32> {
         let port = match &self.inner {
             Some(port) => port,
-            None => return Err(PyValueError::new_err(format!("Port not open"))),
+            None => return Err(PyValueError::new_err("Port not open")),
         };
 
         match port.0.bytes_to_read() {
